@@ -4,6 +4,11 @@ import (
 	"salary-management/config"
 	"salary-management/models"
 	"salary-management/routes"
+	"log"
+	"os"
+
+	"github.com/joho/godotenv"
+	"github.com/gin-gonic/gin"
 )
 
 
@@ -34,9 +39,11 @@ if os.Getenv("DATABASE_URL") == "" {
 	config.ConnectDB()
     config.DB.AutoMigrate(&models.Employee{})
 
-	r.Use(CORSMiddleware())
+	
 
 
 	r := routes.SetupRouter()
+
+	r.Use(CORSMiddleware())
 	r.Run(":8080")
 }
