@@ -1,0 +1,82 @@
+{
+	"info": {
+		"_postman_id": "5cdac1f9-81c5-411d-911d-07e96a58e881",
+		"name": "Salary Management System ",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31809855"
+	},
+	"item": [
+		{
+			"name": "Add Employee",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"bank_account\": \"1234567890\",\n  \"ifsc_code\": \"SBIN0001234\",\n  \"salary\": 50000\n}\n"
+				},
+				"url": {
+					"raw": "{{server-link}}/employee",
+					"host": [
+						"{{server-link}}"
+					],
+					"path": [
+						"employee"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Employees",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\": \"Alice\",\n  \"email\": \"alice@example.com\",\n  \"bank_account\": \"1234567890\",\n  \"ifsc_code\": \"SBIN0001234\",\n  \"salary\": 50000\n}\n"
+				},
+				"url": {
+					"raw": "{{server-link}}/employees",
+					"host": [
+						"{{server-link}}"
+					],
+					"path": [
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Employee PAy",
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "{{server-link}}/employee/pay",
+					"host": [
+						"{{server-link}}"
+					],
+					"path": [
+						"employee",
+						"pay"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
