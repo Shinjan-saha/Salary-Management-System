@@ -11,7 +11,7 @@ func SetupRoutes(r *gin.Engine) {
 		c.String(200, "✅ Hello! Get ready to manage your salary 💰")
 	})
 
-	r.POST("/employee", controllers.AddEmployee)Add commentMore actions
+	r.POST("/employee", controllers.AddEmployee)
 	r.GET("/employees", controllers.GetEmployees)
 	r.POST("/employee/pay", controllers.MakePayment)
 }
