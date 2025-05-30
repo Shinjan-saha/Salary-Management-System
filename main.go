@@ -45,5 +45,12 @@ if os.Getenv("DATABASE_URL") == "" {
 	r := routes.SetupRouter()
 
 	r.Use(CORSMiddleware())
+
+	r.GET("/", func(c *gin.Context) {
+		c.String(200, "✅ Hello! Get ready to manage your salary 💰")
+	})
+
+
+	
 	r.Run(":8080")
 }
