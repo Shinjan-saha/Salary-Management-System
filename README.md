@@ -124,6 +124,21 @@ A backend service built in **Go (Golang)** for managing employee salaries with s
     "currency": "INR"
   }
   ```
+---
+
+  ### 📄 DELETE Employees
+
+- **Endpoint:** `DELETE /employee/:id`
+- **Response:**
+  ```json
+  
+    {
+     "message": "Employee deleted  successfully"
+    }
+  
+  ```
+
+---
 
 
 

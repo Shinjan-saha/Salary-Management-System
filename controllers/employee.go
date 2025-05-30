@@ -51,3 +51,21 @@ func MakePayment(c *gin.Context) {
 
 	c.JSON(http.StatusOK, gin.H{"payment_url": paymentURL})
 }
+
+
+func DeleteEmployee(c *gin.Context) {
+	id := c.Param("id")
+
+	var emp models.Employee
+	if err := config.DB.First(&emp, id).Error; err != nil {
+		c.JSON(http.StatusNotFound, gin.H{"error": "Employee not found"})
+		return
+	}
+
+	if err := config.DB.Delete(&emp).Error; err != nil {
+		c.JSON(http.StatusInternalServerError, gin.H{"error": "Failed to delete employee"})
+		return
+	}
+
+	c.JSON(http.StatusOK, gin.H{"message": "Employee deleted successfully"})
+}
