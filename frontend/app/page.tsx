@@ -4,10 +4,9 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Button } from "@/components/ui/button";
 
-// Create an axios instance with base URL from env
+
 const api = axios.create({
   baseURL: process.env.NEXT_PUBLIC_API_BASE_URL,
-   withCredentials: true,
 });
 
 type Employee = {
@@ -36,7 +35,7 @@ export default function EmployeeDashboard() {
 
   const fetchEmployees = async () => {
     try {
-      const res = await api.get("/employees");  // Use api instance here
+      const res = await api.get("/employees");
       setEmployees(res.data);
     } catch (err) {
       console.error("Failed to fetch employees", err);
@@ -75,7 +74,7 @@ export default function EmployeeDashboard() {
         <div className="grid grid-cols-2 gap-4">
           {(Object.keys(form) as (keyof typeof form)[]).map((key) => (
             <input
-              key={key}
+              key={`input-${key}`} 
               className="border p-2 rounded"
               type={key === "salary" ? "number" : "text"}
               name={key}
@@ -85,7 +84,9 @@ export default function EmployeeDashboard() {
             />
           ))}
         </div>
-        <Button className="mt-4" onClick={addEmployee}>Add Employee</Button>
+        <Button className="mt-4" onClick={addEmployee}>
+          Add Employee
+        </Button>
       </div>
 
       <div className="bg-white p-4 rounded shadow">
@@ -105,7 +106,8 @@ export default function EmployeeDashboard() {
           </thead>
           <tbody>
             {employees.map((emp) => (
-              <tr key={emp.id}>
+              <tr key={`emp-${emp.id}-${emp.email}`}>
+
                 <td className="border px-2 py-1">{emp.id}</td>
                 <td className="border px-2 py-1">{emp.name}</td>
                 <td className="border px-2 py-1">{emp.email}</td>
