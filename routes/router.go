@@ -1,3 +1,4 @@
+// routes/router.go
 package routes
 
 import (
@@ -5,12 +6,12 @@ import (
 	"salary-management/controllers"
 )
 
-func SetupRouter() *gin.Engine {
-	r := gin.Default()
+func SetupRoutes(r *gin.Engine) {
+	r.GET("/", func(c *gin.Context) {
+		c.String(200, "✅ Hello! Get ready to manage your salary 💰")
+	})
 
-	r.POST("/employee", controllers.AddEmployee)
 	r.GET("/employees", controllers.GetEmployees)
-	r.POST("/employee/pay", controllers.MakePayment)
-
-	return r
+	r.POST("/employee", controllers.CreateEmployee)
+	r.POST("/employee/pay", controllers.PaySalary)
 }
