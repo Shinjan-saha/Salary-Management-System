@@ -1,4 +1,4 @@
-package mainAdd commentMore actions
+package main
 
 import (
 	"salary-management/config"
