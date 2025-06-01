@@ -10,14 +10,14 @@ export default function LoginForm({ onLoginSuccess }: Props) {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
 
+  
+  const HARD_CODED_EMAIL = "admin@example.com";
+  const HARD_CODED_PASSWORD = "securepassword123";
+
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    
-   
-    if (
-      email === process.env.NEXT_PUBLIC_LOGIN_EMAIL &&
-      password === process.env.NEXT_PUBLIC_LOGIN_PASSWORD
-    ) {
+
+    if (email === HARD_CODED_EMAIL && password === HARD_CODED_PASSWORD) {
       setError("");
       onLoginSuccess();
     } else {
